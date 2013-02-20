@@ -1,0 +1,25 @@
+<div class='container'>
+  <form action='/posts' method="post">
+    <label for="title">Title</label>
+    <input id="title" type="text" name="title">
+    <br><br>
+    <label for="description">Description</label>
+    <textarea id="description" name="description"></textarea>
+    <br><br>
+    <label for="email">Email</label>
+    <input id="email" type="email" name="email">
+    <br><br>
+    <label for="price">Price</label>
+    <input id="price" type="text" name="price">
+    <br><br>
+    <label for="category_id">Category</label>
+    <select id="category_id" name="category_id">
+      <% @categories.each do |category| %>
+        <option value= "<%= category.id %>"> <%= category.name %> </option>
+      <% end %>
+    </select>
+    <br><br>
+    <input type="hidden" name="unique_key" value="<%=SecureRandom.hex(n=8)%>"> 
+    <input type="submit" value="Submit Form">
+  </form>
+</div>

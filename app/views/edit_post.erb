@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="post-display">
+  <h2> Your Post has been created! </h2>
+  <h3> Here's how it looks: </h3>
+  <ul>
+    <li> Title: <%= @post.title %> </li>
+    <li> Description: <%= @post.description %> </li>
+    <li> Price: <%= @post.price %> </li>
+    <li> Seller Contact Info: <%= @post.email %> </li>
+  <ul>
+  <p>
+  Dear User,
+    You can access your post for editing with this unique URL: <%=@post.unique_key%>.
+    An email will be sent to you containing this very important information. 
+    PSYCH.
+  </p>
+
+  <h2> Edit your Post: </h2>
+    <form action='/posts/<%=@post.id%>' method="post">
+      <label for="title">Title</label>
+      <input id="title" type="text" name="title" value="<%=@post.title%>">
+      
+      <label for="description">Description</label>
+      <textarea id="description" name="description"><%=@post.description%></textarea>
+      
+      <label for="email">Email</label>
+      <input id="email" type="email" name="email" value="<%=@post.email%>">
+      
+      <label for="price">Price</label>
+      <input id="price" type="text" name="price" value="<%=@post.price%>">
+      
+      <label for="category_id">Category</label>
+      <select id="category_id" name="category_id" value="<%=@post.category_id%>">
+        <% @categories.each do |category| %>
+          <option value= "<%= category.id %>"> <%= category.name %> </option>
+        <% end %>
+      </select>
+      <input type="submit" value="Submit Form">
+    </form>
+  </div>
+</div>
+
+<!--http://localhost:9292/posts/2/edit?key=837e649666eab509

@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="posts-display">
+  <h2> Posts for <%= @category.name%> </h2>
+    <ul>
+      <% @posts.each do |post| %>
+        <li><%= post.title %></li>
+      <% end  %>
+    </ul>
+  </div>
+</div>
